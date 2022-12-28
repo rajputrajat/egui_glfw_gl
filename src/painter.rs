@@ -89,7 +89,7 @@ fn link_program(vs: GLuint, fs: GLuint) -> GLuint {
     program
 }
 
-#[derive(Default)]
+//#[derive(Default)]
 pub struct UserTexture {
     size: (usize, usize),
 
@@ -541,7 +541,7 @@ impl Painter {
 
                         let gamma = 1.0;
                         let data: Vec<u8> = image
-                            .srgba_pixels(gamma)
+                            .srgba_pixels(Some(gamma))
                             .flat_map(|a| a.to_array())
                             .collect();
 
@@ -579,7 +579,7 @@ impl Painter {
 
                     let gamma = 1.0;
                     let pixels = image
-                        .srgba_pixels(gamma)
+                        .srgba_pixels(Some(gamma))
                         .flat_map(|a| a.to_array())
                         .collect();
 
